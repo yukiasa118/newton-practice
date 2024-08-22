@@ -6,14 +6,16 @@ def optimize(x, f):
     while diff > 0.01 and iter_count < iter_limit:
         f_prime = derivative(x, f, h)
         f_double_prime = second_derivative(x, f, h)
-        x_temp = x - f_prime/f_double_prime
+        x_temp = x - f_prime / f_double_prime
         diff = abs(x_temp - x)
         x = x_temp
-        iter_count = iter_count+1
+        iter_count = iter_count + 1
     return x, f(x)
 
+
 def derivative(x, f, h):
-    return (f(x+h)-f(x))/h
+    return (f(x + h) - f(x)) / h
+
 
 def second_derivative(x, f, h):
-    return (derivative(x+h, f, h)-derivative(x, f, h))/h
+    return (derivative(x + h, f, h) - derivative(x, f, h)) / h
