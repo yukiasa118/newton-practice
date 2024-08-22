@@ -1,4 +1,20 @@
 def optimize(x, f):
+    """
+    Newton's Method
+
+    returns the coordinates of the optimal point found using Newton's Method.
+
+    Parameters
+    -----------
+    x: int or float, initial guess for Newton's method
+    f: function, the function on which Newton's method is performed
+
+    Returns
+    ----------
+    x: input value to get the optimal point found using Newton's Method
+    f(x): the optimized value for the function
+    
+    """
     iter_limit = 100000000
     iter_count = 0
     diff = 10
