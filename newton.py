@@ -15,18 +15,25 @@ def optimize(x, f):
     f(x): the optimized value for the function
     
     """
-    iter_limit = 100000000
+    if not callable(f):
+        raise TypeError(f"Argument is not a function, it is of type {type(f)}")
+    if not type(x) == "int" and not type(x) == "float":
+        raise TypeError('x must be numeric')
+    
+    iter_limit = 10000000000000
     iter_count = 0
     diff = 10
-    h = 0.01
-    while diff > 0.01 and iter_count < iter_limit:
+    h = 0.00001
+    while diff > 0.00001 and iter_count < iter_limit:
         f_prime = derivative(x, f, h)
         f_double_prime = second_derivative(x, f, h)
+        if f_double_prime == 0:
+            raise RunTimeError("second derivative is 0")
         x_temp = x - f_prime / f_double_prime
         diff = abs(x_temp - x)
         x = x_temp
         iter_count = iter_count + 1
-    return x, f(x)
+    return [x, f(x)]
 
 
 def derivative(x, f, h):
