@@ -2,7 +2,7 @@ def optimize(x, f):
     """
     Newton's Method
 
-    returns the coordinates of the optimal point found using Newton's Method.
+    Return the coordinates of the optimal point found using Newton's Method.
 
     Parameters
     -----------
