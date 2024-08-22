@@ -1,12 +1,15 @@
 def optimize(x, f):
+    iter_limit = 100000000
+    iter_count = 0
     diff = 10
     h = 0.01
-    while diff > 0.01:
+    while diff > 0.01 and iter_count < iter_limit:
         f_prime = derivative(x, f, h)
         f_double_prime = second_derivative(x, f, h)
         x_temp = x - f_prime/f_double_prime
         diff = abs(x_temp - x)
         x = x_temp
+        iter_count = iter_count+1
     return x, f(x)
 
 def derivative(x, f, h):
