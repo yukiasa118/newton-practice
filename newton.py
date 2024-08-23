@@ -20,7 +20,7 @@ def optimize(x, f):
     if not isinstance(x, float) and not isinstance(x, int):
         raise TypeError('x must be numeric')
     
-    iter_limit = 10000000000000
+    iter_limit = 10000000000
     iter_count = 0
     diff = 10
     h = 0.00001
