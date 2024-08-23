@@ -17,7 +17,7 @@ def optimize(x, f):
     """
     if not callable(f):
         raise TypeError(f"Argument is not a function, it is of type {type(f)}")
-    if not type(x) == "int" and not type(x) == "float":
+    elif not isinstance(x, float) and not isinstance(x, int):
         raise TypeError('x must be numeric')
     
     iter_limit = 10000000000000
