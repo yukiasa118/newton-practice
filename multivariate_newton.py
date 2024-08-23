@@ -28,7 +28,6 @@ def multi_optimize(x, f):
     while diff > 0.00001 and iter_count < iter_limit:
         grad = nd.Gradient(f)
         hess = nd.Hessian(f)
-
         x_temp = x - scipy.linalg.solve(hess(x), grad(x))
         diff = abs(x_temp - x)
         x = x_temp
